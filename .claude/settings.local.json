@@ -3,7 +3,9 @@
     "allow": [
       "Bash(mkdir -p \"c:\\\\Users\\\\chris\\\\Downloads\\\\DDD\\\\PASSA\\\\mateus\\\\mateus\\\\css\" \"c:\\\\Users\\\\chris\\\\Downloads\\\\DDD\\\\PASSA\\\\mateus\\\\mateus\\\\js\")",
       "Bash(ls \"c:\\\\Users\\\\chris\\\\Downloads\\\\DDD\\\\PASSA\\\\mateus\\\\mateus\\\\\")",
-      "Read(//c/Users/chris/Downloads/DDD/PASSA/mateus/**)"
+      "Read(//c/Users/chris/Downloads/DDD/PASSA/mateus/**)",
+      "WebFetch(domain:danielaugustofreire.github.io)",
+      "WebFetch(domain:api.github.com)"
     ],
     "additionalDirectories": [
       "c:\\Users\\chris\\Downloads\\DDD\\PASSA\\mateus\\mateus"

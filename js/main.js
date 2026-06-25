@@ -11,15 +11,18 @@ document.addEventListener('DOMContentLoaded', function () {
     var mobileMenuLinks = mobileMenu.querySelectorAll('a');
 
     function openMenu() {
+      mobileMenu.removeAttribute('inert');
+      mobileMenu.removeAttribute('aria-hidden');
       mobileMenu.classList.add('is-open');
-      mobileMenu.setAttribute('aria-hidden', 'false');
       navToggle.setAttribute('aria-expanded', 'true');
       navToggle.setAttribute('aria-label', 'Fechar menu');
       document.body.classList.add('menu-open');
     }
 
     function closeMenu() {
+      navToggle.focus(); // move foco para fora antes de tornar inert
       mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('inert', '');
       mobileMenu.setAttribute('aria-hidden', 'true');
       navToggle.setAttribute('aria-expanded', 'false');
       navToggle.setAttribute('aria-label', 'Abrir menu');
@@ -53,17 +56,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (expandBtn && lightbox) {
     function openLightbox() {
+      lightbox.removeAttribute('inert');
+      lightbox.removeAttribute('aria-hidden');
       lightbox.classList.add('is-open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('menu-open'); // reusa a trava de scroll
+      document.body.classList.add('menu-open');
       lightboxClose.focus();
     }
 
     function closeLightbox() {
+      expandBtn.focus(); // move foco para fora antes de tornar inert
       lightbox.classList.remove('is-open');
+      lightbox.setAttribute('inert', '');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('menu-open');
-      expandBtn.focus();
     }
 
     expandBtn.addEventListener('click', openLightbox);
