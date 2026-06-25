@@ -54,8 +54,46 @@
          class="nav-cta">
         Começar agora
       </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
     </nav>
   </header>
+
+  <!-- Menu mobile (overlay) -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+    <div class="mobile-menu-top">
+      <a href="#" class="mobile-menu-logo">
+        <img src="used_images/logo-mateus.png" alt="Mateus Passareli">
+      </a>
+      <button class="mobile-menu-close" type="button" aria-label="Fechar menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="20" height="20" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-menu-nav" aria-label="Menu principal">
+      <a href="#sobre" class="mobile-menu-link">Sobre</a>
+      <a href="#galeria" class="mobile-menu-link">Galeria</a>
+      <a href="#planos" class="mobile-menu-link">Planos</a>
+      <a href="#avaliacao" class="mobile-menu-link">Avaliação</a>
+      <a href="#resultados" class="mobile-menu-link">Transformações</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="https://api.whatsapp.com/send?phone=5518996602676&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20seus%20hor%C3%A1rios%20de%20Personal!"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn-wpp mobile-menu-cta">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.85L0 24l6.343-1.524A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.87 0-3.63-.484-5.16-1.337l-.37-.218-3.767.906.944-3.668-.24-.39A9.943 9.943 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+        </svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </div>
 
   <main id="conteudo-principal">
 
@@ -110,19 +148,16 @@
     <!-- AVALIAÇÃO FÍSICA -->
     <section class="avaliacao" id="avaliacao" aria-labelledby="avaliacao-titulo">
       <div class="avaliacao-content">
-        <div class="avaliacao-img">
-          <img src="used_images/AVALIACAO_FISICA.png" alt="Ilustração de avaliação física">
-        </div>
         <div class="avaliacao-info">
+          <h2 id="avaliacao-titulo">
+            Faça sua <span class="text-blue">avaliação física</span>
+          </h2>
           <div class="section-label">Avaliação Física</div>
           <div class="avaliacao-badges">
             <span>✓ Presencial</span>
             <span>✓ Consultoria Online</span>
             <span>✓ Plano Personalizado</span>
           </div>
-          <h2 id="avaliacao-titulo">
-            Faça sua <span class="text-blue">avaliação física</span>
-          </h2>
           <p>
             Descubra seu ponto de partida, acompanhe sua evolução e receba
             orientações personalizadas para alcançar seus objetivos.
@@ -133,6 +168,13 @@
              class="btn-primary">
             Agendar Avaliação
           </a>
+        </div>
+        <div class="avaliacao-img">
+          <img src="used_images/AVALIACAO_FISICA.png" alt="Ilustração de avaliação física" id="avaliacao-img-thumb">
+          <button class="avaliacao-expand-btn" type="button" id="avaliacao-expand" aria-label="Ver imagem de avaliação física em tamanho completo">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            Ampliar imagem
+          </button>
         </div>
       </div>
     </section>
@@ -477,6 +519,16 @@
     </nav>
     <span class="footer-copy">© 2026 · CREF 210691-G/SP</span>
   </footer>
+
+  <!-- LIGHTBOX — AVALIAÇÃO FÍSICA -->
+  <div class="lightbox" id="lightbox-avaliacao" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagem de avaliação física ampliada">
+    <button class="lightbox-close" type="button" id="lightbox-close" aria-label="Fechar imagem">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="lightbox-inner">
+      <img src="used_images/AVALIACAO_FISICA.png" alt="Avaliação física completa" class="lightbox-img">
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

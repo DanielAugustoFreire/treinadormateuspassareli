@@ -7,13 +7,14 @@
   grid-template-columns: 1fr 1fr;
   position: relative;
   overflow: hidden;
+  padding-top: var(--nav-h); /* empurra o hero inteiro para baixo do nav fixo */
 }
 
 .hero-left {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 120px 60px 80px;
+  padding: 60px 60px 80px;
   position: relative;
   z-index: 1;
   background: linear-gradient(135deg, #05111f 0%, #0a0a0a 100%);
@@ -126,16 +127,17 @@
     display: none;
   }
 
-  /* No mobile, as fotos do Mateus viram background-image */
+  /* No mobile, mateus1 cobre o hero inteiro, gradiente garante legibilidade do texto */
   .hero-left {
-    padding: 120px 28px 90px;
+    padding: 48px 24px 72px;
     background:
-      linear-gradient(180deg, rgba(5, 17, 31, 0.08) 0%, rgba(10, 10, 10, 0.58) 42%, rgba(10, 10, 10, 0.96) 100%),
-      url('../used_images/mateus1-480x628-c-default.jpg'),
-      url('../used_images/mateus2-320x628-c-default.jpg');
-    background-repeat: no-repeat, no-repeat, no-repeat;
-    background-size: cover, 52vw auto, 42vw auto;
-    background-position: center, right -18px bottom -10px, left -42px top 18px;
+      linear-gradient(180deg,
+        rgba(10, 10, 10, 0.55) 0%,
+        rgba(10, 10, 10, 0.45) 30%,
+        rgba(10, 10, 10, 0.82) 70%,
+        rgba(10, 10, 10, 0.97) 100%
+      ),
+      url('../used_images/mateus1-480x628-c-default.jpg') center top / cover no-repeat;
   }
 
   .hero-grid {

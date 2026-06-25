@@ -1,5 +1,85 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  // ============================================
+  // MENU MOBILE (hamburguer)
+  // ============================================
+  var navToggle   = document.querySelector('.nav-toggle');
+  var mobileMenu  = document.getElementById('mobile-menu');
+
+  if (navToggle && mobileMenu) {
+    var mobileClose     = mobileMenu.querySelector('.mobile-menu-close');
+    var mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+    function openMenu() {
+      mobileMenu.classList.add('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      navToggle.setAttribute('aria-expanded', 'true');
+      navToggle.setAttribute('aria-label', 'Fechar menu');
+      document.body.classList.add('menu-open');
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Abrir menu');
+      document.body.classList.remove('menu-open');
+    }
+
+    navToggle.addEventListener('click', function () {
+      mobileMenu.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+
+    if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+
+    mobileMenuLinks.forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+        closeMenu();
+        navToggle.focus();
+      }
+    });
+  }
+
+  // ============================================
+  // LIGHTBOX — AVALIAÇÃO FÍSICA
+  // ============================================
+  var expandBtn      = document.getElementById('avaliacao-expand');
+  var lightbox       = document.getElementById('lightbox-avaliacao');
+  var lightboxClose  = document.getElementById('lightbox-close');
+
+  if (expandBtn && lightbox) {
+    function openLightbox() {
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('menu-open'); // reusa a trava de scroll
+      lightboxClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('menu-open');
+      expandBtn.focus();
+    }
+
+    expandBtn.addEventListener('click', openLightbox);
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        closeLightbox();
+      }
+    });
+  }
+
   var experienciaSection = document.querySelector('.experiencia-wpp');
   var finalCta = document.getElementById('quer-ser-meu-aluno');
 
