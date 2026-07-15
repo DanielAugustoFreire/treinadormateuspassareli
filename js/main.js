@@ -89,10 +89,11 @@ document.addEventListener('DOMContentLoaded', function () {
   var finalCta = document.getElementById('quer-ser-meu-aluno');
 
   // Links do WhatsApp que ficam FORA do CTA final
+  // (exclui também os marcados com data-wpp-direct, que devem abrir o WhatsApp direto)
   var whatsappLinks = Array.from(
     document.querySelectorAll('a[href*="api.whatsapp.com/send"]')
   ).filter(function (link) {
-    return !link.closest('#quer-ser-meu-aluno');
+    return !link.closest('#quer-ser-meu-aluno') && !link.hasAttribute('data-wpp-direct');
   });
 
   // ============================================
@@ -306,7 +307,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // ============================================
   // LINKS DO WHATSAPP → REDIRECIONA PARA CTA FINAL
   // Comportamento intencional: qualquer botão de WhatsApp
-  // fora do CTA final rola até ele e dispara a animação.
+  // fora do CTA final rola até ele e dispara a animação,
+  // exceto os marcados com data-wpp-direct (abrem o WhatsApp direto).
   // ============================================
   whatsappLinks.forEach(function (link) {
     link.addEventListener('click', function (event) {
